@@ -5,19 +5,19 @@ import Image from 'next/image';
 import Navbar from './Navbar';
 import LogoLoop from '../components/LogoLoop/LogoLoop';
 import { Baloo_2 } from 'next/font/google';
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiTailwindcss, 
-  SiMysql, 
-  SiPhp, 
-  SiSharp,  
-  SiDotnet, 
-  SiFirebase, 
-  SiGmail, 
-  SiJirasoftware, 
-  SiVercel, 
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiMysql,
+  SiPhp,
+  SiSharp,
+  SiDotnet,
+  SiFirebase,
+  SiGmail,
+  SiJirasoftware,
+  SiVercel,
   SiOpenai,
   SiApache,
 } from "react-icons/si";
@@ -27,6 +27,7 @@ const baloo = Baloo_2({
   weight: ['400', '700'],
 });
 
+// Tech logos for the LogoLoop
 const techLogos = [
   { node: <SiGmail className="text-[#EA4335]" />, title: "Gmail", href: "https://mail.google.com" },
   { node: <SiJirasoftware className="text-[#0052CC]" />, title: "Jira", href: "https://www.atlassian.com/software/jira" },
@@ -44,6 +45,7 @@ const techLogos = [
   { node: <SiApache className="text-[#D22128]" />, title: "XAMPP", href: "https://www.apachefriends.org" },
 ];
 
+// Data
 const languages = [
   { name: 'HTML5', icon: '/html5.png', percent: 90 },
   { name: 'CSS3', icon: '/css-3.png', percent: 85 },
@@ -59,8 +61,6 @@ const tools = [
   { name: 'Git', icon: '/Github.png', percent: 80 },
   { name: 'VS Code', icon: '/Vscode.png', percent: 95 },
   { name: 'Microsoft Visual Studio', icon: '/Microsoft.png', percent: 80 },
-  
-  
 ];
 
 const databases = [
@@ -69,29 +69,43 @@ const databases = [
   { name: 'Firebase', icon: '/Firebase.png', percent: 85 },
 ];
 
+// Render category cards
 const renderCategoryCard = (
-  title: string, 
+  title: string,
   items: { name: string; icon: string; percent: number }[]
 ) => (
   <motion.div
     key={title}
-    className="p-6 bg-[#242323] border border-[#ff6a00] rounded-2xl shadow-md hover:shadow-[0_0_30px_#ff5722] transition-all duration-300"
+    className="p-5 sm:p-6 bg-[#242323] border border-[#ff6a00] rounded-2xl shadow-md 
+               hover:shadow-[0_0_30px_#ff5722] transition-all duration-300 w-full"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5 }}
   >
-    <h3 className="text-2xl font-bold text-[#ffa94d] mb-4">{title}</h3>
-    <div className="flex flex-wrap gap-6 justify-center">
+    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#ffa94d] mb-4 text-center">
+      {title}
+    </h3>
+    <div className="flex flex-wrap gap-4 sm:gap-6 justify-center">
       {items.map(item => (
-        <div key={item.name} className="flex flex-col items-center gap-2 w-24">
+        <div
+          key={item.name}
+          className="flex flex-col items-center gap-2 w-16 sm:w-20 md:w-24"
+        >
           {/* Icon */}
-          <div className="w-12 h-12 relative">
-            <Image src={item.icon} alt={item.name} fill className="object-contain" />
+          <div className="w-10 h-10 sm:w-12 sm:h-12 relative">
+            <Image
+              src={item.icon}
+              alt={item.name}
+              fill
+              className="object-contain"
+            />
           </div>
 
           {/* Name */}
-          <p className="text-white text-center text-sm">{item.name}</p>
+          <p className="text-white text-center text-[10px] sm:text-xs md:text-sm">
+            {item.name}
+          </p>
 
           {/* Progress Bar */}
           <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
@@ -104,7 +118,9 @@ const renderCategoryCard = (
           </div>
 
           {/* Percentage */}
-          <p className="text-xs text-[#ffa94d] font-semibold">{item.percent}%</p>
+          <p className="text-[9px] sm:text-[11px] md:text-xs text-[#ffa94d] font-semibold">
+            {item.percent}%
+          </p>
         </div>
       ))}
     </div>
@@ -113,30 +129,40 @@ const renderCategoryCard = (
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative min-h-screen w-full bg-[#111111] snap-start">
+    <section
+      id="skills"
+      className="relative min-h-screen w-full bg-[#111111] snap-start overflow-hidden"
+    >
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-10 py-20">
-        <h2 className="text-4xl font-extrabold text-[#ff6a00] mb-12 text-center">My Skills</h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-14 md:py-20">
+        {/* Title */}
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#ff6a00] mb-8 md:mb-12 text-center">
+          My Skills
+        </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {renderCategoryCard('Languages & Frameworks', languages)}
           {renderCategoryCard('Tools', tools)}
           {renderCategoryCard('Databases', databases)}
         </div>
 
-        <div className="relative z-10 text-center py-10 px-6 md:px-20 -mt-4">
-          <h3 className={`text-3xl md:text-4xl font-extrabold mb-8 text-gradient ${baloo.className}`}>
+        {/* Tech Logos Loop */}
+        <div className="relative z-10 text-center py-10 px-4 md:px-20 -mt-2">
+          <h3
+            className={`text-xl sm:text-2xl md:text-4xl font-extrabold mb-6 md:mb-8 text-gradient ${baloo.className}`}
+          >
             Skills & Tools I am familiar with
           </h3>
 
-          <div className="max-w-4xl mx-auto h-[100px] relative overflow-hidden">
+          <div className="max-w-4xl mx-auto h-[70px] sm:h-[90px] md:h-[100px] relative overflow-hidden">
             <LogoLoop
               logos={techLogos}
               speed={120}
               direction="left"
-              logoHeight={50}
-              gap={50}
+              logoHeight={35} // smaller for mobile
+              gap={25}
               pauseOnHover
               scaleOnHover
               fadeOut
