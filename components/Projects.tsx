@@ -14,21 +14,21 @@ export default function Projects() {
       title: 'Online Community for Bartenders with Weighted Average Algorithm',
       description:
         'A collaborative alcohol party planning system using Weighted Average Algorithm for recommendations.',
-      images: ['/WEB1.png','/WEB2.png','/WEB4.png','/WEB5.png','/WEB6.png','/WEB7.png','/WEB8.png','/WEB9.png'],
+      images: ['/projects/WEB1.png','/projects/WEB2.png','/projects/WEB4.png','/projects/WEB5.png','/projects/WEB6.png','/projects/WEB7.png','/projects/WEB8.png','/projects/WEB9.png'],
     },
     {
       id: 2,
       title: 'Bataan Pet Hub Veterinary Clinic System',
       description:
         'A web system for managing veterinary appointments, pet records, and clinic operations.',
-      images: ['/Bat1.png','/Bat3.png','/Bat4.png','/Bat5.png','/Bat6.png','/Bat7.png'],
+      images: ['/projects/Bat1.png','/projects/Bat3.png','/projects/Bat4.png','/projects/Bat5.png','/projects/Bat6.png','/projects/Bat7.png'],
     },
     {
       id: 3,
       title: 'JC Photography Studio Portfolio and Booking System',
       description:
         'A photography studio portfolio and booking system for clients and events.',
-      images: ['/JC1.png','/JC2.png','/JC3.png','/jc4.png','/JC5.png'],
+      images: ['/projects/JC1.png','/projects/JC2.png','/projects/JC3.png','/projects/jc4.png','/projects/JC5.png'],
     },
   ];
 
