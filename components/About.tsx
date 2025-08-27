@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Baloo_2 } from 'next/font/google';
 import Navbar from './Navbar';
 
+
 const baloo = Baloo_2({ subsets: ['latin'], weight: '700' });
 
 type Certificate = {
