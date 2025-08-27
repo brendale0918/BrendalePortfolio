@@ -29,12 +29,14 @@ export default function Home() {
 
       <SplashCursor />
 
-      {/* CONTENT */}
-<div className="relative z-10 flex flex-col-reverse md:flex-row items-center 
-                justify-between px-6 sm:px-10 pt-24 sm:pt-32 pb-20 
-                max-w-7xl mx-auto gap-12">
-
-  {/* LEFT TEXT (on mobile it appears first because of flex-col-reverse) */}
+      {/* HOME SECTION */}
+<div
+  id="home"
+  className="relative z-10 flex flex-col-reverse md:flex-row items-center 
+             justify-between px-6 sm:px-10 pt-24 sm:pt-32 pb-32 sm:pb-40 md:pb-48 
+             max-w-7xl mx-auto gap-12"
+>
+  {/* LEFT TEXT */}
   <motion.div
     className="text-center md:text-left max-w-xl"
     initial={{ opacity: 0, y: 40 }}
@@ -45,7 +47,9 @@ export default function Home() {
       <BlurText text="Hi, I'm Brendale De Leon" className="text-[#ff6a00]" />
     </h1>
 
-    <h2 className={`text-base sm:text-lg md:text-2xl text-[#ff6a00] mb-6 ${baloo.className}`}>
+    <h2
+      className={`text-base sm:text-lg md:text-2xl text-[#ff6a00] mb-6 ${baloo.className}`}
+    >
       Aspiring Software Engineer
     </h2>
 
@@ -107,7 +111,7 @@ export default function Home() {
 
   {/* RIGHT PROFILE CARD */}
   <motion.div
-    className="w-full max-w-xs sm:max-w-sm md:max-w-md"
+    className="w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto md:mx-0"
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: 0.3 }}
@@ -126,6 +130,7 @@ export default function Home() {
     />
   </motion.div>
 </div>
+
     </section>
   );
 }
