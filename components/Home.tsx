@@ -29,16 +29,16 @@ export default function Home() {
 
       <SplashCursor />
 
-      {/* HOME SECTION */}
+    {/* HOME SECTION */}
 <div
   id="home"
   className="relative z-10 flex flex-col-reverse md:flex-row items-center 
              justify-between px-6 sm:px-10 pt-24 sm:pt-32 pb-32 sm:pb-40 md:pb-48 
-             max-w-7xl mx-auto gap-12"
+             max-w-7xl mx-auto gap-12 min-h-screen md:min-h-[90vh]"
 >
   {/* LEFT TEXT */}
   <motion.div
-    className="text-center md:text-left max-w-xl"
+    className="text-center md:text-left max-w-xl w-full"
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
@@ -47,9 +47,7 @@ export default function Home() {
       <BlurText text="Hi, I'm Brendale De Leon" className="text-[#ff6a00]" />
     </h1>
 
-    <h2
-      className={`text-base sm:text-lg md:text-2xl text-[#ff6a00] mb-6 ${baloo.className}`}
-    >
+    <h2 className={`text-base sm:text-lg md:text-2xl text-[#ff6a00] mb-6 ${baloo.className}`}>
       Aspiring Software Engineer
     </h2>
 
@@ -89,7 +87,7 @@ export default function Home() {
     </div>
 
     {/* Buttons */}
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-6">
       <a
         href="/De Leon, Brendale Resume.pdf"
         download
@@ -123,13 +121,14 @@ export default function Home() {
       avatarUrl="/Brendale.jpg"
       showUserInfo
       enableTilt
-      enableMobileTilt={false}
+      enableMobileTilt={true}
       onContactClick={() =>
         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
       }
     />
   </motion.div>
 </div>
+
 
     </section>
   );
