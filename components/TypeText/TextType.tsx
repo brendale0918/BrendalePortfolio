@@ -1,6 +1,6 @@
 "use client";
 
-import { ElementType, useEffect, useRef, useState, createElement } from "react";
+import { ElementType, useEffect, useRef, useState, createElement, useCallback } from "react";
 import { gsap } from "gsap";
 
 interface TextTypeProps {
@@ -55,11 +55,12 @@ const TextType = ({
 
   const textArray = Array.isArray(text) ? text : [text];
 
-  const getRandomSpeed = () => {
-    if (!variableSpeed) return typingSpeed;
-    const { min, max } = variableSpeed;
-    return Math.random() * (max - min) + min;
-  };
+  const getRandomSpeed = useCallback(() => {
+  if (!variableSpeed) return typingSpeed;
+  const { min, max } = variableSpeed;
+  return Math.random() * (max - min) + min;
+}, [variableSpeed, typingSpeed]);
+
 
   const getCurrentTextColor = () => {
     if (textColors.length === 0) return "#ffffff";
@@ -97,7 +98,7 @@ const TextType = ({
     }
   }, [showCursor, cursorBlinkDuration]);
 
-  useEffect(() => {
+    useEffect(() => {
     if (!isVisible) return;
 
     let timeout: NodeJS.Timeout;
@@ -106,6 +107,12 @@ const TextType = ({
     const processedText = reverseMode
       ? currentText.split("").reverse().join("")
       : currentText;
+
+    const getRandomSpeed = () => {
+      if (!variableSpeed) return typingSpeed;
+      const { min, max } = variableSpeed;
+      return Math.random() * (max - min) + min;
+    };
 
     const executeTypingAnimation = () => {
       if (isDeleting) {
@@ -131,9 +138,7 @@ const TextType = ({
         if (currentCharIndex < processedText.length) {
           timeout = setTimeout(
             () => {
-              setDisplayedText(
-                (prev) => prev + processedText[currentCharIndex]
-              );
+              setDisplayedText((prev) => prev + processedText[currentCharIndex]);
               setCurrentCharIndex((prev) => prev + 1);
             },
             variableSpeed ? getRandomSpeed() : typingSpeed
@@ -169,6 +174,7 @@ const TextType = ({
     variableSpeed,
     onSentenceComplete,
   ]);
+
 
   const shouldHideCursor =
     hideCursorWhileTyping &&

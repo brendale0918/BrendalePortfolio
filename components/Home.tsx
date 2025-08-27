@@ -1,6 +1,4 @@
 'use client';
-
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { Baloo_2 } from 'next/font/google';

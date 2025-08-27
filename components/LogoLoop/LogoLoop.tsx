@@ -289,81 +289,77 @@ export const LogoLoop = React.memo<LogoLoopProps>(
     }, [pauseOnHover]);
 
             const renderLogoItem = useCallback(
-            (item: LogoItem, key: React.Key) => {
-                const isNodeItem = "node" in item;
+  (item: LogoItem, key: React.Key) => {
+    const isNodeItem = "node" in item;
 
-                const content = isNodeItem ? (
-                <span
-                    className={cx(
-                    "inline-flex items-center text-white text-6xl", // bigger icons
-                    "motion-reduce:transition-none",
-                    scaleOnHover &&
-                        "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-110"
-                    )}
-                    aria-hidden={!!(item as any).href && !(item as any).ariaLabel}
-                >
-                    {(item as any).node}
-                </span>
-                ) : (
-                <img
-                    className={cx(
-                    "h-[var(--logoloop-logoHeight)] w-auto object-contain",
-                    "[-webkit-user-drag:none] pointer-events-none",
-                    "[image-rendering:-webkit-optimize-contrast] select-none",
-                    "motion-reduce:transition-none",
-                    scaleOnHover &&
-                        "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-110"
-                    )}
-                    src={(item as any).src}
-                    srcSet={(item as any).srcSet}
-                    sizes={(item as any).sizes}
-                    width={(item as any).width}
-                    height={(item as any).height}
-                    alt={(item as any).alt ?? ""}
-                    title={(item as any).title}
-                    loading="lazy"
-                    decoding="async"
-                    draggable={false}
-                />
-                );
+    const content = isNodeItem ? (
+      <span
+        className={cx(
+          "inline-flex items-center text-white text-6xl",
+          "motion-reduce:transition-none",
+          scaleOnHover &&
+            "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-110"
+        )}
+        aria-hidden={!!item.href && !item.ariaLabel}
+      >
+        {item.node}
+      </span>
+    ) : (
+          <img
+            className={cx(
+              "h-[var(--logoloop-logoHeight)] w-auto object-contain",
+              "[-webkit-user-drag:none] pointer-events-none",
+              "[image-rendering:-webkit-optimize-contrast] select-none",
+              "motion-reduce:transition-none",
+              scaleOnHover &&
+                "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-110"
+            )}
+            src={item.src}
+            srcSet={item.srcSet}
+            sizes={item.sizes}
+            width={item.width}
+            height={item.height}
+            alt={item.alt ?? ""}
+            title={item.title}
+            loading="lazy"
+            decoding="async"
+            draggable={false}
+          />
+        );
 
-                const itemAriaLabel = isNodeItem
-                ? ((item as any).ariaLabel ?? (item as any).title)
-                : ((item as any).alt ?? (item as any).title);
+        const itemAriaLabel = isNodeItem ? item.ariaLabel ?? item.title : item.alt ?? item.title;
 
-                const inner = (item as any).href ? (
-                <a
-                    href={(item as any).href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    aria-label={itemAriaLabel || "logo link"}
-                    className="flex items-center justify-center w-full h-full"
-                >
-                    {content}
-                </a>
-                ) : (
-                content
-                );
+        const inner = item.href ? (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={itemAriaLabel || "logo link"}
+            className="flex items-center justify-center w-full h-full"
+          >
+            {content}
+          </a>
+        ) : (
+          content
+        );
 
-                return (
-                <li
-                    key={key}
-                    role="listitem"
-                    className={cx(
-                    "flex-none mr-[var(--logoloop-gap)]",
-                    "flex items-center justify-center",
-                    "w-20 h-20 rounded-xl",
-                    "bg-white/5 backdrop-blur-md border border-white/20 shadow-lg",
-                    "hover:scale-110 transition-transform duration-300",
-                    scaleOnHover && "group/item"
-                    )}
-                >
-                    {inner}
-                </li>
-                );
-            },
-            [scaleOnHover]
-            );
+        return (
+          <li
+            key={key}
+            role="listitem"
+            className={cx(
+              "flex-none mr-[var(--logoloop-gap)] flex items-center justify-center",
+              "w-20 h-20 rounded-xl bg-white/5 backdrop-blur-md border border-white/20 shadow-lg",
+              "hover:scale-110 transition-transform duration-300",
+              scaleOnHover && "group/item"
+            )}
+          >
+            {inner}
+          </li>
+        );
+      },
+      [scaleOnHover]
+    );
 
 
 

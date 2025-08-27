@@ -1,13 +1,17 @@
 {
+  "homepage": "https://brendale0918.github.io/BrendalePortfolio/",
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "predeploy": "next build",
+  "deploy": "gh-pages -d out",
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+}
+,
   "dependencies": {
     "@react-three/drei": "^10.7.4",
     "@react-three/fiber": "^9.3.0",
