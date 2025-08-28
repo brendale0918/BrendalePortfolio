@@ -156,20 +156,20 @@ export default function Skills() {
             Skills & Tools I am familiar with
           </h3>
 
-          <div className="max-w-4xl mx-auto h-[70px] sm:h-[90px] md:h-[100px] relative overflow-hidden">
-            <LogoLoop
-              logos={techLogos}
-              speed={120}
-              direction="left"
-              logoHeight={35} // smaller for mobile
-              gap={25}
-              pauseOnHover
-              scaleOnHover
-              fadeOut
-              fadeOutColor="#0d0d0d"
-              ariaLabel="Technologies I use"
-            />
-          </div>
+          <div className="max-w-4xl mx-auto h-[80px] xs:h-[85px] sm:h-[95px] md:h-[110px] relative overflow-hidden flex items-center">
+          <LogoLoop
+            logos={techLogos}
+            speed={120}
+            direction="left"
+            logoHeight={32} // slightly smaller so it fits neatly
+            gap={25}
+            pauseOnHover
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#0d0d0d"
+            ariaLabel="Technologies I use"
+          />
+        </div>
         </div>
       </div>
     </section>
