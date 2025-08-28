@@ -136,8 +136,8 @@ export default function About() {
     </p>
 
     <p className="text-base sm:text-lg md:text-xl leading-relaxed">
-      Outside coding, I enjoy singing at church and exploring creative ways to combine{' '}
-      <span className="text-[#ff784e] font-medium">design and functionality</span>.
+      Outside of coding, I enjoy exploring emerging technologies and experimenting with innovative tools to sharpen my skills in{' '}
+      <span className="text-[#ff784e] font-medium">Software Testing</span>.
     </p>
   </motion.div>
 </div>
