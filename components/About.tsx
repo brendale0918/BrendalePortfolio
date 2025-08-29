@@ -125,8 +125,8 @@ export default function About() {
     </h2>
 
     <p className="text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
-      Hi! I&apos;m <span className="text-[#ff6a00] font-semibold">Brendale De Leon</span>, an aspiring web
-      developer passionate about building{' '}
+      Hi! I&apos;m <span className="text-[#ff6a00] font-semibold">Brendale De Leon</span>, an aspiring software
+      engineer passionate about building{' '}
       <span className="text-[#ff784e] font-medium">modern, responsive, and user-friendly web applications</span>.
     </p>
 
